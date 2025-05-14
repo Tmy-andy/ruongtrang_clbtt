@@ -588,3 +588,21 @@ button:focus:not(:active)::after {
 #kdj {
     width: 10%;
 }
+
+#picture {
+  /* Thiết lập div cha để căn giữa ảnh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden; /* Ngăn nội dung tràn ra ngoài div */
+}
+
+#picture img {
+  /* Thiết lập ảnh để vừa với div cha */
+  max-width: 100%; /* Đảm bảo ảnh không rộng hơn div cha */
+  height: auto; /* Giữ tỷ lệ khung hình */
+  display: block; /* Loại bỏ khoảng trống dư thừa phía dưới ảnh */
+  border-radius: 10px; /* Bo góc ảnh (điều chỉnh theo nhu cầu) */
+  object-fit: contain; /* Đảm bảo ảnh vừa vặn và không bị méo */
+}
