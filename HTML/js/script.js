@@ -381,15 +381,44 @@ document.addEventListener("DOMContentLoaded", () => {
     showCakeThenCode();
 });
 
-const musicNotice = document.getElementById('music-notice');
-const bgMusic = document.getElementById('bg-music');
+// const musicNotice = document.getElementById('music-notice');
+// const bgMusic = document.getElementById('bg-music');
 
-musicNotice?.addEventListener('click', () => {
-    bgMusic?.play().then(() => {
-        musicNotice.style.transform = 'translateY(-100%)'; // Ẩn thanh nhạc sau khi phát
-        setTimeout(() => musicNotice.style.display = 'none', 300);
-    }).catch((err) => {
-        alert("Trình duyệt không cho phát nhạc. Hãy thử lại sau nhé!");
-        console.error("Audio Play Error:", err);
-    });
+// musicNotice?.addEventListener('click', () => {
+//     bgMusic?.play().then(() => {
+//         musicNotice.style.transform = 'translateY(-100%)'; // Ẩn thanh nhạc sau khi phát
+//         setTimeout(() => musicNotice.style.display = 'none', 300);
+//     }).catch((err) => {
+//         alert("Trình duyệt không cho phát nhạc. Hãy thử lại sau nhé!");
+//         console.error("Audio Play Error:", err);
+//     });
+// });
+
+const music = document.getElementById('bg-music');
+const toggleBtn = document.getElementById('music-toggle');
+const stopBtn = document.getElementById('music-stop');
+let isPlaying = false;
+
+toggleBtn.addEventListener('click', () => {
+    if (!isPlaying) {
+        music.play().then(() => {
+            isPlaying = true;
+            toggleBtn.textContent = '❚❚';
+        }).catch((err) => {
+            alert("Không thể phát nhạc. Trình duyệt có thể đang chặn.");
+            console.error(err);
+        });
+    } else {
+        music.pause();
+        isPlaying = false;
+        toggleBtn.textContent = '▷';
+    }
 });
+
+stopBtn.addEventListener('click', () => {
+    music.pause();
+    music.currentTime = 0;
+    isPlaying = false;
+    toggleBtn.textContent = '▷';
+});
+
