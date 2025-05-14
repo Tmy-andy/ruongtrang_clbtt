@@ -704,56 +704,37 @@ button:focus:not(:active)::after {
     background-color: #FFD6DF;
 } */
 
-#music-control {
+#music-bar {
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
-    z-index: 999;
+    background-color: white;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    padding: 6px 10px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 8px;
-    align-items: center;
+    z-index: 999;
+    transition: opacity 0.4s ease;
+    opacity: 0.7;
 }
 
-#music-control button {
-    background: linear-gradient(145deg, #FFE6EB, #FFD6DF);
-    color: #E77C8D;
+#music-bar:hover {
+    opacity: 1;
+}
+
+#music-bar button {
+    background-color: transparent;
     border: none;
-    font-size: 22px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(231, 124, 141, 0.2);
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    font-family: 'Pacifico', cursive;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 6px;
+    font-size: 24px;
+    color: #E77C8D;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-#music-control button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 18px rgba(231, 124, 141, 0.3);
-    background: linear-gradient(145deg, #FFD6DF, #FFE6EB);
-}
-
-/* Optional: icon pulse effect when playing */
-#music-toggle.playing::after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 182, 193, 0.3);
-    z-index: -1;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    70% { transform: scale(1.4); opacity: 0.2; }
-    100% { transform: scale(1.7); opacity: 0; }
+#music-bar button:hover {
+    transform: scale(1.2);
+    color: #D75D78;
 }
