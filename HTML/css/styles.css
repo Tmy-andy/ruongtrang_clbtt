@@ -606,3 +606,25 @@ button:focus:not(:active)::after {
   border-radius: 10px; /* Bo góc ảnh (điều chỉnh theo nhu cầu) */
   object-fit: contain; /* Đảm bảo ảnh vừa vặn và không bị méo */
 }
+
+@media (max-width: 480px) {
+    .card {
+        height: auto; /* Đặt chiều cao tự động */
+        margin-bottom: 10px; /* Giảm khoảng cách dưới thẻ */
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column; /* Đặt ô nhập và nút gửi theo chiều dọc */
+        gap: 10px; /* Khoảng cách giữa các phần tử */
+    }
+
+    input {
+        width: 100%; /* Đảm bảo ô nhập chiếm toàn bộ chiều rộng */
+        padding: 10px; /* Padding cho ô nhập */
+    }
+
+    button {
+        width: 100%; /* Đảm bảo nút gửi chiếm toàn bộ chiều rộng */
+    }
+}
