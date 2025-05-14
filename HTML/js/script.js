@@ -380,3 +380,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Kick off
     showCakeThenCode();
 });
+
+const musicNotice = document.getElementById('music-notice');
+const bgMusic = document.getElementById('bg-music');
+
+musicNotice?.addEventListener('click', () => {
+    bgMusic?.play().then(() => {
+        musicNotice.style.transform = 'translateY(-100%)'; // Ẩn thanh nhạc sau khi phát
+        setTimeout(() => musicNotice.style.display = 'none', 300);
+    }).catch((err) => {
+        alert("Trình duyệt không cho phát nhạc. Hãy thử lại sau nhé!");
+        console.error("Audio Play Error:", err);
+    });
+});
