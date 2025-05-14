@@ -384,6 +384,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("loaded");
     });
 
+    // Thêm sự kiện lật cho thẻ Mật Mã
+    document.getElementById("code-card").addEventListener("click", function() {
+        this.querySelector(".card-inner").classList.toggle("flipped");
+    });
+    
     // Kick off
     showCakeThenCode();
 });
