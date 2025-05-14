@@ -189,7 +189,14 @@ button:focus:not(:active)::after {
 /* Slideshow */
 .slideshow {
     position: relative;
-    margin: 15px auto;
+}
+
+#slide-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .slide-frame {
@@ -198,14 +205,6 @@ button:focus:not(:active)::after {
     overflow: hidden;
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-#slide-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    transition: transform 0.5s ease;
-    display: block;
 }
 
 .buttons {
