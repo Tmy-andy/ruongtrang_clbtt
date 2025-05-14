@@ -405,10 +405,7 @@ toggleBtn.addEventListener('click', () => {
             isPlaying = true;
             toggleIcon.classList.remove('fa-circle-play');
             toggleIcon.classList.add('fa-circle-pause');
-        }).catch((err) => {
-            alert("Không thể phát nhạc. Trình duyệt có thể đang chặn.");
-            console.error(err);
-        });
+        })
     } else {
         music.pause();
         isPlaying = false;
