@@ -1,149 +1,273 @@
+/* Thiết lập cơ bản */
+:root {
+    --primary-color: #E77C8D;
+    --primary-dark: #D75D78;
+    --primary-light: #FFE6EB;
+    --accent-color: #FF8FAB;
+    --accent-light: #FFBFD1;
+    --text-primary: #333;
+    --white: #ffffff;
+    --radius-lg: 12px;
+    --shadow-normal: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --transition-normal: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #e0f7fa; /* Màu nền pastel nhạt */
-    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-light), #FFC9D7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    box-sizing: border-box;
     font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 h1 {
-    font-size: 2em;
-    color: #00796b;
+    font-size: 2.2em;
+    color: var(--primary-color);
     margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .container {
     width: 100%;
     max-width: 600px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     padding: 30px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    box-shadow: var(--shadow-normal);
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Hiệu ứng animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.6s ease forwards;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* Hình ảnh và nội dung */
 .code-image,
 .cake,
 .gift {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
     height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
+    border-radius: var(--radius-lg);
+    margin: 0 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
 }
 
+.birthday-message {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+/* Form và input */
 input,
 button {
     width: 100%;
     max-width: 400px;
     padding: 12px 16px;
     font-size: 16px;
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     margin-top: 15px;
     outline: none;
+    transition: all var(--transition-normal);
 }
 
 input {
-    border: 1px solid #00796b;
+    border: 2px solid #FFBFD1;
+    background-color: #f5f5f5;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(231, 124, 141, 0.2);
+    background-color: white;
 }
 
 button {
     border: none;
-    background-color: #00796b;
+    background-color: var(--primary-color);
     color: white;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 button:hover {
-    background-color: #004d40;
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(215, 93, 120, 0.3);
 }
 
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
 
-    .container {
-        padding: 20px;
-    }
+/* Hiệu ứng gợn sóng cho button */
+button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+    z-index: -1;
+}
 
-    input, button {
-        font-size: 14px;
-        padding: 10px;
-    }
+button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
 
-    .code-image, .cake, .gift {
-        max-width: 100%;
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
     }
 }
 
+/* Slideshow */
 .slideshow {
     position: relative;
+    margin: 15px auto;
+}
+
+.slide-frame {
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #slide-image {
     width: 100%;
-    max-width: 500px;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-lg);
+    transition: transform 0.5s ease;
+    display: block;
 }
 
 .buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 12px;
     margin-top: 15px;
 }
 
-button {
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: none;
-    background-color: #00796b;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.buttons button {
+    flex: 1;
+    min-width: 100px;
+    max-width: 150px;
+    padding: 10px 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
-button:hover {
-    background-color: #004d40;
+#go-to-text-wishes {
+    background-color: var(--accent-color);
+    width: 100%;
+    margin-top: 15px;
 }
 
+#go-to-text-wishes:hover {
+    background-color: #C5506B;
+}
+
+/* Text wishes section */
 #text-wishes {
-    overflow-y: auto; /* Cho phép cuộn khi nội dung quá dài */
-    height: calc(100vh - 60px); /* Đảm bảo chiều cao của phần này không vượt quá chiều cao của màn hình */
+    overflow-y: auto;
+    max-height: 80vh;
+    padding-right: 10px;
 }
 
 .wishes-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
+    padding-bottom: 100px; /* Đảm bảo có chỗ để cuộn */
 }
 
 .wish-box {
-    background: linear-gradient(135deg, #e0f7fa, #ffffff);
-    border-left: 6px solid #00796b;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.2);
+    background: linear-gradient(135deg, #FFE6EB, #ffffff);
+    border-left: 6px solid var(--primary-color);
+    padding: 25px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px rgba(231, 124, 141, 0.15);
     font-size: 16px;
     text-align: left;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wish-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(231, 124, 141, 0.25);
 }
 
 .wish-box::before {
@@ -151,93 +275,157 @@ button:hover {
     position: absolute;
     top: -10px;
     right: -10px;
-    font-size: 24px;
+    font-size: 30px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
 }
 
+/* Special gift animation */
 #special-gift {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 1000;
-    animation: shake 1s infinite;
+    margin-top: 20px; /* Khoảng cách từ phần nội dung */
+    padding: 10px 20px; /* Padding cho nút */
+    background-color: #E77C8D; /* Màu nền */
+    color: white; /* Màu chữ */
+    border-radius: 5px; /* Bo góc */
+    text-align: center; /* Căn giữa nội dung */
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+}
+#special-gift:hover {
+    background-color: #D75D78; /* Màu nền khi hover */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
 }
 
 @keyframes shake {
     0% { transform: rotate(0deg); }
-    25% { transform: rotate(1deg); }
-    50% { transform: rotate(-1deg); }
-    75% { transform: rotate(1deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(2deg); }
     100% { transform: rotate(0deg); }
 }
 
-/* Profile full-screen overlay */
+/* Profile overlay */
 .profile-container {
-    /* Không cần display:none ở đây – JS sẽ gỡ .hidden */
     justify-content: center;
     align-items: center;
-    position: fixed;               /* Full-screen overlay */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6); /* Nền mờ */
+    background: rgba(0, 0, 0, 0.85);
     z-index: 1500;
-
-    /* Khi .hidden bị gỡ (JS remove .hidden), mặc định display:flex */
     display: flex !important;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
 }
 
-/* Ẩn mặc định thông qua .hidden */
 .profile-container.hidden {
     display: none !important;
 }
 
-/* Nếu muốn ảnh phủ trọn hoàn toàn */
-#profile-img.fullscreen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain; /* Giữ tỉ lệ hình */
+#profile-img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: appear 0.8s ease;
 }
 
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
+#profile-img:hover {
+    transform: scale(1.03);
+}
+
+/* Popup */
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
 }
 
 .popup-content {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: var(--radius-lg);
     text-align: center;
+    position: relative;
+    max-width: 90%;
+    animation: scaleIn 0.5s forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 20px;
     font-size: 24px;
     cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+    z-index: 10;
 }
+
+.close-btn:hover {
+    color: #000;
+}
+
+#download-all {
+    background-color: var(--accent-color);
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#download-all:hover {
+    background-color: #C5506B;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(197, 80, 107, 0.4);
+}
+
+/* Card styling */
 .card {
     width: 100%;
     max-width: 500px;
     perspective: 1000px; /* Tạo hiệu ứng 3D */
     margin: 0 auto; /* Căn giữa thẻ */
     margin-bottom: 20px; /* Thêm khoảng cách dưới thẻ */
+    cursor: pointer;
 }
 
 .card-inner {
@@ -265,6 +453,135 @@ button:hover {
 }
 
 .card-inner.flipped {
-    transform: rotateY(180deg); /* Lật thẻ */
+    transform: rotateY(180deg);
 }
 
+/* Hint for card */
+.card::after {
+    content: 'Nhấp vào thẻ hoặc vào đây để lật và xem cả hai mặt';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-weight: 500;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+/* Birthday cake name animation */
+#cake-name {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorChange 3s infinite alternate;
+    padding: 5px 15px;
+    border-radius: 30px;
+    border: 2px dashed rgba(231, 124, 141, 0.3);
+}
+
+@keyframes colorChange {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(45deg);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .buttons button {
+        max-width: 100%;
+    }
+    
+    #text-wishes {
+        max-height: 70vh;
+    }
+    
+    .wish-box {
+        padding: 20px 15px;
+    }
+    
+    .card {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+    
+    .wish-box {
+        padding: 15px 12px;
+    }
+    
+    #special-gift {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+    }
+    
+    .profile-container #profile-img {
+        width: 90%;
+    }
+    
+    .card {
+        height: 200px;
+    }
+}
+
+/* SweetAlert customizations */
+.rounded-popup {
+    border-radius: 15px !important;
+    overflow: hidden;
+}

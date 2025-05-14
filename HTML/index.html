@@ -9,91 +9,158 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <audio id="chest-sound" src="Sound/chest-open.mp3" preload="auto"></audio>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <audio id="chest-sound" src="Sound/chest-open.mp3" preload="auto"></audio>
+    <audio autoplay loop hidden>
+        <source src="Music/清らかな光 Solas Glan.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+    </audio>
 </head>
 <body>
-    <div id="birthday-cake" class="container">
-        <h1 id="cake-name">🎉 Chúc Mừng Sinh Nhật! 🎂</h1>
-        <img src="Image/cake.gif" alt="Bánh sinh nhật" class="cake">
-        <p class="birthday-message">Hãy cùng nhau tạo nên những kỷ niệm tuyệt vời trong ngày đặc biệt này!</p>
-    </div>
+    <div class="page-wrapper">
+        <!-- Phần Bánh Sinh Nhật -->
+        <div id="birthday-cake" class="container">
+            <h1 id="cake-name" class="animate__animated animate__bounceIn">🎉 Chúc Mừng Sinh Nhật! 🎂</h1>
+            <!-- <div class="cake-container">
+                <img src="Image/cake.gif" alt="Bánh sinh nhật" class="cake animate__animated animate__zoomIn">
+            </div> -->
+            <div class="tenor-gif-embed" data-postid="4116395324025680430" data-share-method="host" data-aspect-ratio="1.02049" data-width="100%"><a href="https://tenor.com/view/nim-nim-gif-orv-kim-dokja-kdj-gif-4116395324025680430">Nim Nim Gif GIF</a>from <a href="https://tenor.com/search/nim-gifs">Nim GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+            <p class="birthday-message animate__animated animate__fadeIn animate__delay-2s">Hãy cùng nhau tạo nên những kỷ niệm tuyệt vời trong ngày đặc biệt này!</p>
+        </div>
 
-    <div id="code-page" class="container hidden">
-        <h1>Giải mật mã để nhận quà đặc biệt nào!</h1>
-        <div class="card" id="code-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <img src="Image/code_image_front.png" alt="Mật mã mặt trước" class="code-image">
+        <!-- Phần Nhập Mật Mã -->
+        <div id="code-page" class="container hidden">
+            <h1 class="animate__animated animate__fadeInDown">Giải mật mã để nhận quà đặc biệt nào!</h1>
+            <div class="card" id="code-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="Image/code_image_front.png" alt="Mật mã mặt trước" class="code-image">
+                    </div>
+                    <div class="card-back">
+                        <img src="Image/code_image_back.png" alt="Mật mã mặt sau" class="code-image">
+                    </div>
                 </div>
-                <div class="card-back">
-                    <img src="Image/code_image_back.png" alt="Mật mã mặt sau" class="code-image">
+            </div>
+            <div class="input-group">
+                <input type="text" id="answer" placeholder="Nhập đáp án" autocomplete="off">
+                <button id="submit-answer" class="pulse-button">
+                    <span>Gửi</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phần Xem Ảnh Chúc Mừng -->
+        <div id="birthday-wishes" class="container hidden">
+            <h1 class="animate__animated animate__fadeInDown">Chúc Mừng Sinh Nhật!</h1>
+            <div class="slideshow">
+                <div class="slide-frame">
+                    <img id="slide-image" src="Image/Chúc/IMG_20250423_000927.jpg" alt="Lời chúc sinh nhật">
+                    <div class="slide-control slide-prev" id="prev-btn"><i class="fas fa-chevron-left"></i></div>
+                    <div class="slide-control slide-next" id="next-btn"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <div class="buttons">
+                    <button id="download-btn"><i class="fas fa-download"></i> Tải ảnh</button>
+                    <button id="go-to-text-wishes" class="accent-button">Xem lời chúc <i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>    
+
+        <!-- Phần Xem Lời Chúc -->
+        <div id="text-wishes" class="container hidden">
+            <h1 class="animate__animated animate__fadeInDown">Lời chúc dành riêng cho bạn 📝</h1>
+            <div class="wishes-list">
+                <div class="wish-box animate__animated animate__fadeInUp">Lục Trác.<br>
+                    Helo helo Trác nhé. Chúc cậu khi đọc được bài này thì mọi muộn phiền đều tan biến như tài khoản vừa được tăng số dư (nghe nó hơi vật chất dữ vậy :"))<br><br>
+                    Đầu tiên, mình xin gửi đến cậu một lời chúc sức khỏe và CHÚC MỪNG SINH NHẬT TRÁC nhá!!! Happy Birthday to u, Happy Birthday to u. <br><br>
+                    Lời thứ hai, mình mong cho hôm nay của cậu là một ngày vui, ngày mai của cậu cũng là một ngày vui, ngày mốt mốt ×vô cùng của cậu cũng sẽ là một ngày đong đầy cảm xúc. <br><br>
+                    Chúc cho Trác của tuổi mới thật nhiều sức khỏe, vì có khỏe thì chúng ta mới bán mình cho tư bản làm giàu tiếp được. Dạo này nhìn cậu bệnh cực quá. <br><br>
+                    Chúc cho Trác của tuổi mới thật nhiều thành công, từ bán mình cho tư bản thành tư bản (siêu giàu) trong tương lai nhé. Không chỉ thành công trong khía cạnh sự nghiệp mà còn là cuộc sống, tình yêu, gia đình và bản thân. Một thành tựu cho bản thân cậu cũng xứng đáng được xem là thành công rồii.<br><br>
+                    Chúc cho Trác của tuổi mới với một hành trình mới, mong cho sự nỗ lực và cố gắng của cậu sẽ được đền đáp xứng đáng. Trên hành trình mới này, hi vọng cậu sẽ giữ vững trái tim, phát triển bản thân và không ngừng học hỏi nhé. Nếu có thì khởi động vận đào hoa nữa là niềm vui ×2. <br><br>
+                    Chung quy lại thì, chúc Trác sinh nhật vui vẻ nhé. Mong cho 2025 của Trác có một dấu ấn đặc biệt là CLBTT ❤</div>
+                <div class="wish-box animate__animated animate__fadeInUp">Gửi Trác nhe, <br><br>
+                    Chúc Trác sinh nhật vui vẻ, mạnh khỏe, tuổi mới vạn sự như ý, đường sự nghiệp tình duyên đều rực rỡ. Hy vọng có cơ hội chơi cùng Trác nhiều hơn.</div>
+                <div class="wish-box animate__animated animate__fadeInUp">dear Lục Trác:
+                    <br><br>
+                    Bạn là một người có vẻ ngoài lạnh lùng nhưng nội tâm ấm áp, là một thành viên nhiệt huyết của CLBTT.<BR><BR>
+                    Mong tương lai của bạn, cũng như hành trình của bạn tại CLBTT sáng rỡ. 
+                </div>
+                <div class="wish-box animate__animated animate__fadeInUp">Vậy là Trác lại bước sang một mùa sinh nhật nữa rồi, và thật may mắn khi lần này mình cùng tất cả mọi người tại CLB có thể cùng Trác đón tuổi mới. Mình chúc Trác sinh nhật vui vẻ, tuổi mới an nhiên. Mong rằng mọi điều tốt đẹp, may mắn sẽ cùng làn gió hạ nhẹ nhàng tiến về phía Trác. Mong rằng những ước nguyện, khát vọng, cũng như hoài bão phía bên trong Trác có thể hoàn thành một cách sớm nhất và suôn sẻ, thuận lợi. Mình biết rằng cả hai chưa có quá nhiều cơ hội để cùng nhau chia sẻ nhiều điều thú vị hay kinh nghiệm cho nhau, vậy nên mình mong rằng trong tương lai chúng ta sẽ cùng nhau chinh phục nhiều thử thách tại CLB hơn nhé.
+                    <br><br>
+                    Và thật hạnh phúc nếu chúng ta có thêm thật nhiều lần cùng nhau đón dịp quan trọng này. Sinh nhật vui vẻ nhé.
+                </div>
+                <div class="wish-box animate__animated animate__fadeInUp">
+                    Chúc mừng sinh nhật Trác nhé! Chúc cậu tuổi mới thật nhiều sức khỏe, bình an và luôn giữ được "chất riêng" như sắc đen cậu yêu thích. Mong rằng năm nay, năm sau và năm sau nữa sẽ là một hành trình đáng nhớ với nhiều trải nghiệm thú vị của cậu!
+                </div>
+            </div>
+            <div class="tenor-gif-embed" data-postid="26497459" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%">
+                <a href="https://tenor.com/view/orv-omniscient-readers-viewpoint-kim-dokja-yoo-joonghyuk-yjh-gif-26497459">Orv Omniscient Readers Viewpoint GIF </a>from <a href="https://tenor.com/search/orv-gifs">Orv GIFs</a>
+            </div> 
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+            <div id="special-gift" class="simple-button">
+                <p>Special gift - Nhấp vào đây đi</p>
+            </div>
+        </div>
+
+        <!-- Phần Hiển Thị Ảnh Profile -->
+        <div class="profile-container hidden">
+            <div class="profile-content">
+                <img id="profile-img" src="Image/profile.jpg" alt="Ảnh Profile">
+                <div class="profile-info">
+                    <p>Nhấp vào ảnh để xem quà đặc biệt</p>
                 </div>
             </div>
         </div>
-        <input type="text" id="answer" placeholder="Nhập đáp án">
-        <button id="submit-answer">Gửi</button>
-    </div>
 
-    <div id="birthday-wishes" class="container hidden">
-        <h1>Chúc Mừng Sinh Nhật!</h1>
-        <div class="slideshow">
-            <div class="slide-frame">
-                <img id="slide-image" src="Image/Chúc/IMG_20250423_000927.jpg" alt="Lời chúc sinh nhật">
+        <!-- Popup Ảnh Quà Đặc Biệt -->
+        <div id="popup" class="popup hidden">
+            <div class="popup-content">
+                <span id="close-popup" class="close-btn">✖</span>
+                <img src="Image/special-gift.jpg" id="popup-img">
+                <button id="download-all" class="accent-button">
+                    <i class="fas fa-download"></i> Tải cả hai ảnh
+                </button>
             </div>
-
-            <div class="buttons">
-                <button id="prev-btn"><i class="fas fa-chevron-left"></i> Trước</button>
-                <button id="download-btn">Tải ảnh</button>
-                <button id="next-btn">Sau <i class="fas fa-chevron-right"></i></button>
-                <button id="go-to-text-wishes">Xem lời chúc ✨</button>
-            </div>
-        </div>
-    </div>    
-
-    <div id="text-wishes" class="container hidden">
-        <h1>Lời chúc dành riêng cho bạn 📝</h1>
-        <div class="wishes-list">
-            <div class="wish-box">Lục Trác.<br>
-                Helo helo Trác nhé. Chúc cậu khi đọc được bài này thì mọi muộn phiền đều tan biến như tài khoản vừa được tăng số dư (nghe nó hơi vật chất dữ vậy :"))<br><br>
-                Đầu tiên, mình xin gửi đến cậu một lời chúc sức khỏe và CHÚC MỪNG SINH NHẬT TRÁC nhá!!! Happy Birthday to u, Happy Birthday to u. <br><br>
-                Lời thứ hai, mình mong cho hôm nay của cậu là một ngày vui, ngày mai của cậu cũng là một ngày vui, ngày mốt mốt ×vô cùng của cậu cũng sẽ là một ngày đong đầy cảm xúc. <br><br>
-                Chúc cho Trác của tuổi mới thật nhiều sức khỏe, vì có khỏe thì chúng ta mới bán mình cho tư bản làm giàu tiếp được. Dạo này nhìn cậu bệnh cực quá. <br><br>
-                Chúc cho Trác của tuổi mới thật nhiều thành công, từ bán mình cho tư bản thành tư bản (siêu giàu) trong tương lai nhé. Không chỉ thành công trong khía cạnh sự nghiệp mà còn là cuộc sống, tình yêu, gia đình và bản thân. Một thành tựu cho bản thân cậu cũng xứng đáng được xem là thành công rồii.<br><br>
-                Chúc cho Trác của tuổi mới với một hành trình mới, mong cho sự nỗ lực và cố gắng của cậu sẽ được đền đáp xứng đáng. Trên hành trình mới này, hi vọng cậu sẽ giữ vững trái tim, phát triển bản thân và không ngừng học hỏi nhé. Nếu có thì khởi động vận đào hoa nữa là niềm vui ×2. <br><br>
-                Chung quy lại thì, chúc Trác sinh nhật vui vẻ nhé. Mong cho 2025 của Trác có một dấu ấn đặc biệt là CLBTT ❤</div>
-            <div class="wish-box">Gửi Trác nhe, <br><br>
-                Chúc Trác sinh nhật vui vẻ, mạnh khỏe, tuổi mới vạn sự như ý, đường sự nghiệp tình duyên đều rực rỡ. Hy vọng có cơ hội chơi cùng Trác nhiều hơn.</div>
-            <div class="wish-box">dear Lục Trác:
-                <br><br>
-                Bạn là một người có vẻ ngoài lạnh lùng nhưng nội tâm ấm áp, là một thành viên nhiệt huyết của CLBTT.<BR><BR>
-                Mong tương lai của bạn, cũng như hành trình của bạn tại CLBTT sáng rỡ. 
-            </div>
-            <div class="wish-box">Vậy là Trác lại bước sang một mùa sinh nhật nữa rồi, và thật may mắn khi lần này mình cùng tất cả mọi người tại CLB có thể cùng Trác đón tuổi mới. Mình chúc Trác sinh nhật vui vẻ, tuổi mới an nhiên. Mong rằng mọi điều tốt đẹp, may mắn sẽ cùng làn gió hạ nhẹ nhàng tiến về phía Trác. Mong rằng những ước nguyện, khát vọng, cũng như hoài bão phía bên trong Trác có thể hoàn thành một cách sớm nhất và suôn sẻ, thuận lợi. Mình biết rằng cả hai chưa có quá nhiều cơ hội để cùng nhau chia sẻ nhiều điều thú vị hay kinh nghiệm cho nhau, vậy nên mình mong rằng trong tương lai chúng ta sẽ cùng nhau chinh phục nhiều thử thách tại CLB hơn nhé.
-                <br><br>
-                Và thật hạnh phúc nếu chúng ta có thêm thật nhiều lần cùng nhau đón dịp quan trọng này. Sinh nhật vui vẻ nhé.
-            </div>
-            <div class="wish-box">
-                Chúc mừng sinh nhật Trác nhé! Chúc cậu tuổi mới thật nhiều sức khỏe, bình an và luôn giữ được “chất riêng” như sắc đen cậu yêu thích. Mong rằng năm nay, năm sau và năm sau nữa sẽ là một hành trình đáng nhớ với nhiều trải nghiệm thú vị của cậu!
-            </div>
-        </div>
-        <div id="special-gift" class="hidden">
-            <img src="Image/Chest.gif" alt="Rương" style="width: 100px;">
-            <p>Special gift - Nhấp vào đi</p>
         </div>
     </div>
 
-    <div class="profile-container hidden">
-        <img id="profile-img" src="Image/profile.jpg" alt="Ảnh Profile" style="width: 300px; cursor: pointer;">
-    </div>
-
-    <div id="popup" class="popup hidden">
-        <div class="popup-content">
-            <span id="close-popup" class="close-btn">✖</span>
-            <img src="Image/special-gift.jpg" id="popup-img" style="max-width: 90%;">
-            <br>
-            <button id="download-all">Tải cả hai ảnh</button>
-        </div>
-    </div>
+    <!-- Hiệu ứng hoa rơi -->
+    <div class="flowers-container"></div>
 
     <script src="js/script.js"></script>
+
+    <!-- Script tạo hiệu ứng hoa rơi -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flowersContainer = document.querySelector('.flowers-container');
+            const flowerTypes = ['🌸', '🌺', '🌷', '🌹', '💐', '🌻'];
+            
+            function createFlower() {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDuration = Math.random() * 8 + 5 + 's';
+                flower.style.fontSize = Math.random() * 20 + 10 + 'px';
+                flower.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                flowersContainer.appendChild(flower);
+                
+                setTimeout(() => {
+                    flower.remove();
+                }, 13000);
+            }
+            
+            // Tạo hoa mỗi 1 giây
+            setInterval(createFlower, 1000);
+            
+            // Tạo một số hoa ngay lập tức
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createFlower, i * 300);
+            }
+        });
+    </script>
 </body>
 </html>
