@@ -582,7 +582,7 @@ button:focus:not(:active)::after {
     .card-inner {
     position: relative;
     width: 100%;
-    height: auto; /* Đặt chiều cao cố định cho thẻ */
+    height: 180px; /* Đặt chiều cao cố định cho thẻ */
     transition: transform 0.6s;
     transform-style: preserve-3d; /* Giữ các mặt 3D */
 }
