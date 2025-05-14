@@ -31,6 +31,8 @@ body {
     font-size: 16px;
     color: var(--text-primary);
     line-height: 1.6;
+    flex-direction: column;
+    overflow-x: hidden; /* tránh tràn ngang */
 }
 
 h1 {
@@ -511,7 +513,7 @@ button:focus:not(:active)::after {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     body {
         padding: 15px;
     }
@@ -544,7 +546,7 @@ button:focus:not(:active)::after {
     .card {
         height: 250px;
     }
-}
+} */
 
 @media (max-width: 480px) {
     body {
