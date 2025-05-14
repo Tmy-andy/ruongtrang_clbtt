@@ -412,7 +412,7 @@ toggleBtn.addEventListener('click', () => {
     } else {
         music.pause();
         isPlaying = false;
-        toggleBtn.textContent = '▷';
+        toggleBtn.textContent = '▶';
         toggleBtn.classList.remove('playing');
     }
 });
@@ -421,7 +421,7 @@ stopBtn.addEventListener('click', () => {
     music.pause();
     music.currentTime = 0;
     isPlaying = false;
-    toggleBtn.textContent = '▷';
+    toggleBtn.textContent = '▶';
     toggleBtn.classList.remove('playing');
 });
 
