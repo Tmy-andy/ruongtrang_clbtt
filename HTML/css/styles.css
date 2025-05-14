@@ -481,7 +481,7 @@ button:focus:not(:active)::after {
     animation: colorChange 3s infinite alternate;
     padding: 5px 15px;
     border-radius: 30px;
-    border: 2px dashed rgba(231, 124, 141, 0.3);
+    border: 2px dashed rgba(254, 172, 186, 0.737);
 }
 
 @keyframes colorChange {
@@ -571,6 +571,10 @@ button:focus:not(:active)::after {
         object-fit: contain;
     }
     
+    #cake-name {
+        font-size: 25;
+    }
+
     h1 {
         font-size: 1.6em;
     }

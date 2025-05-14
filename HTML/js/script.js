@@ -140,15 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // 3) Slideshow trong Birthday Wishes
     function initSlideshow() {
         const images = [
-            "Image/Chúc/IMG_20250423_000927.jpg",
-            "Image/Chúc/IMG_20250423_234627.jpg",
-            "Image/Chúc/IMG_1745395066610_1745425491431.jpg",
-            "Image/Chúc/Messenger_creation_7EF8903F-35C8-4BCE-BD96-9F8D3E3A35F4.jpg",
-            "Image/Chúc/Messenger_creation_B0080B6A-8CAC-4DBE-9A83-978DE4E55D65.jpg",
-            "Image/Chúc/Thiệp sinh nhật Trác.png",
-            "Image/Chúc/CMSN_Trac.png",
-            "Image/Chúc/dea8081a-3efb-4835-837a-d4aec4777cf0.jpg",
-            "Image/DT.jpg"
+            "Image/Chúc/thuuuuu.jpg",
+            "Image/Chúc/Thiệp chúc mừng sinh nhật Thu .png",
         ];
         
         // Preload images for smoother experience
