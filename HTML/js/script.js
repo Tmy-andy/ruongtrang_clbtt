@@ -403,8 +403,8 @@ toggleBtn.addEventListener('click', () => {
     if (!isPlaying) {
         music.play().then(() => {
             isPlaying = true;
-            toggleBtn.textContent = '❚❚';
-            toggleBtn.classList.add('playing');
+            toggleIcon.classList.remove('fa-circle-play');
+            toggleIcon.classList.add('fa-circle-pause');
         }).catch((err) => {
             alert("Không thể phát nhạc. Trình duyệt có thể đang chặn.");
             console.error(err);
@@ -412,8 +412,8 @@ toggleBtn.addEventListener('click', () => {
     } else {
         music.pause();
         isPlaying = false;
-        toggleBtn.textContent = '▶';
-        toggleBtn.classList.remove('playing');
+        toggleIcon.classList.remove('fa-circle-pause');
+        toggleIcon.classList.add('fa-circle-play');
     }
 });
 
@@ -421,8 +421,9 @@ stopBtn.addEventListener('click', () => {
     music.pause();
     music.currentTime = 0;
     isPlaying = false;
-    toggleBtn.textContent = '▶';
-    toggleBtn.classList.remove('playing');
+    toggleIcon.classList.remove('fa-circle-pause');
+    toggleIcon.classList.add('fa-circle-play');
 });
+
 
 
