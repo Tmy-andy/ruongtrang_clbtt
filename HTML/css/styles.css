@@ -457,7 +457,7 @@ button:focus:not(:active)::after {
 
 /* Hint for card */
 .card::after {
-    content: 'Nhấp vào thẻ hoặc vào đây để lật và xem cả hai mặt';
+    content: 'Nhấp vào thẻ';
     position: absolute;
     bottom: -25px;
     left: 50%;

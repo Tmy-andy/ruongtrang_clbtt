@@ -300,11 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
       });      
 
-    //     // Thêm sự kiện lật cho thẻ Mật Mã
-    // document.getElementById("code-card").addEventListener("click", function() {
-    //     this.querySelector(".card-inner").classList.toggle("flipped");
-    // });
-
     // Add keyboard support for entering the code
     if (answerInput) {
         answerInput.addEventListener("keydown", e => {
@@ -388,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("code-card").addEventListener("click", function() {
         this.querySelector(".card-inner").classList.toggle("flipped");
     });
-    
+
     // Kick off
     showCakeThenCode();
 });
