@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const images = [
             "Image/Chúc/thuuuuu.jpg",
             "Image/Chúc/Thiệp chúc mừng sinh nhật Thu .png",
+            "Image/Chúc/1.jpg",
+            "Image/Chúc/2.jpg",
+            "Image/Chúc/3.jpg",
         ];
         
         // Preload images for smoother experience
