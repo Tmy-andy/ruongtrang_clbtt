@@ -704,26 +704,6 @@ button:focus:not(:active)::after {
     background-color: #FFD6DF;
 } */
 
-#music-bar {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: white;
-    border-radius: 999px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    padding: 6px 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 999;
-    transition: opacity 0.4s ease;
-    opacity: 0.7;
-}
-
-#music-bar:hover {
-    opacity: 1;
-}
-
 #music-bar button {
     background-color: transparent;
     border: none;

@@ -403,23 +403,11 @@ toggleBtn.addEventListener('click', () => {
     if (!isPlaying) {
         music.play().then(() => {
             isPlaying = true;
-            toggleIcon.classList.remove('fa-circle-play');
-            toggleIcon.classList.add('fa-circle-pause');
         })
     } else {
         music.pause();
         isPlaying = false;
-        toggleIcon.classList.remove('fa-circle-pause');
-        toggleIcon.classList.add('fa-circle-play');
     }
-});
-
-stopBtn.addEventListener('click', () => {
-    music.pause();
-    music.currentTime = 0;
-    isPlaying = false;
-    toggleIcon.classList.remove('fa-circle-pause');
-    toggleIcon.classList.add('fa-circle-play');
 });
 
 
