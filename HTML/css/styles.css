@@ -704,6 +704,12 @@ button:focus:not(:active)::after {
     background-color: #FFD6DF;
 } */
 
+#music-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
 #music-bar button {
     background-color: transparent;
     border: none;
@@ -711,6 +717,7 @@ button:focus:not(:active)::after {
     padding: 6px;
     font-size: 24px;
     color: #E77C8D;
+    background-color: #f5f5f5;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
