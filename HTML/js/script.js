@@ -404,6 +404,7 @@ toggleBtn.addEventListener('click', () => {
         music.play().then(() => {
             isPlaying = true;
             toggleBtn.textContent = '❚❚';
+            toggleBtn.classList.add('playing');
         }).catch((err) => {
             alert("Không thể phát nhạc. Trình duyệt có thể đang chặn.");
             console.error(err);
@@ -412,6 +413,7 @@ toggleBtn.addEventListener('click', () => {
         music.pause();
         isPlaying = false;
         toggleBtn.textContent = '▷';
+        toggleBtn.classList.remove('playing');
     }
 });
 
@@ -420,5 +422,7 @@ stopBtn.addEventListener('click', () => {
     music.currentTime = 0;
     isPlaying = false;
     toggleBtn.textContent = '▷';
+    toggleBtn.classList.remove('playing');
 });
+
 
