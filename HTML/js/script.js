@@ -145,7 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
             "Image/Chúc/1.jpg",
             "Image/Chúc/2.jpg",
             "Image/Chúc/3.jpg",
-            "Image/Chúc/than_tang_tanthu.png"
+            "Image/Chúc/than_tang_tanthu.png",
+            "Image/Chúc/CMSN T4.png"
         ];
         
         // Preload images for smoother experience
