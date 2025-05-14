@@ -579,6 +579,9 @@ button:focus:not(:active)::after {
     .card {
         height: 200px;
     }
+    #popup-img {
+        height: 200px
+    }
 }
 
 /* SweetAlert customizations */
@@ -630,3 +633,27 @@ button:focus:not(:active)::after {
         width: 100%; /* Đảm bảo nút gửi chiếm toàn bộ chiều rộng */
     }
 }
+
+.flowers-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* để không ảnh hưởng đến tương tác phía dưới */
+    z-index: 1; /* Đặt thấp để không che phần nội dung */
+    overflow: hidden;
+}
+.flower {
+    position: absolute;
+    top: -10px;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
