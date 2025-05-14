@@ -520,7 +520,8 @@ button:focus:not(:active)::after {
     
     .container {
         padding: 20px 15px;
-        height: 300px;
+        max-width: 750px;
+        height: auto;
     }
     
     h1 {
@@ -567,7 +568,8 @@ button:focus:not(:active)::after {
 
     .container {
         padding: 20px 15px;
-        height: 300px;
+        max-width: 450px;
+        height: auto;
     }
     
     h1 {
