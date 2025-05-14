@@ -570,13 +570,9 @@ button:focus:not(:active)::after {
         height: auto;
         object-fit: contain;
     }
-    
-    #cake-name {
-        font-size: 25;
-    }
 
     h1 {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
     
     input, button {
